@@ -1,5 +1,5 @@
-````markdown
-# Detección de Objetos en Tiempo Real (Windows)
+
+# Detección de Objetos en Tiempo Real 
 
 Aplicación sencilla y eficiente para **Windows** que usa la **cámara del PC** y reconoce objetos **en tiempo real** con **YOLOv8**.  
 Cada objeto detectado se marca con un **cuadro**, **nombre** y un **color distinto por clase** (mismo color siempre para la misma clase).
@@ -10,7 +10,7 @@ Cada objeto detectado se marca con un **cuadro**, **nombre** y un **color distin
 
 ## 🟢 Opción A: Probar el ejecutable (.exe) — ¡La más fácil!
 
-1. **Descarga** el archivo `detector-objetos.exe` desde la sección **Releases** de este repositorio (o donde te lo compartieron).
+1. **Descarga** el archivo `detector-objetos.exe` desde la sección **Releases** de este repositorio o (https://www.mediafire.com/file/lhhfcajf88kd7df/detecta_objetos.exe/file).
 2. **Haz doble clic** sobre `detector-objetos.exe`.
 3. La primera vez, podría tardar un poco mientras descarga el modelo de IA (si no está en caché).
 4. Cuando se abra la ventana de video, verás las detecciones en tiempo real.
@@ -37,7 +37,7 @@ Cada objeto detectado se marca con un **cuadro**, **nombre** y un **color distin
   ```bash
   git clone https://github.com/tu-usuario/tu-repo.git
   cd tu-repo
-````
+
 
 ### 3) Crear entorno virtual (recomendado)
 
@@ -46,12 +46,20 @@ python -m venv .venv
 .\.venv\Scripts\activate
 ```
 
+
 ### 4) Instalar dependencias
+
 
 ```bash
 pip install --upgrade pip
-pip install ultralytics opencv-python
+pip install -r requirements.txt
+````
+
+> **Nota (opcional - GPU NVIDIA):** si quieres usar CUDA, instala la variante de PyTorch para tu versión de CUDA siguiendo la guía oficial de PyTorch. De lo contrario, la instalación anterior usa la versión CPU y funciona igual.
+
 ```
+
+
 
 > La primera ejecución descargará automáticamente el modelo `yolov8n.pt` (ligero y rápido).
 
@@ -128,7 +136,7 @@ La primera ejecución en una máquina “limpia” puede tardar mientras se desc
 .
 ├─ detecta_objetos.py      # Código principal
 ├─ README.md               # Este archivo
-└─ requirements.txt        # (opcional) ultralytics, opencv-python
+└─ requirements.txt        # Requisitos para la app de detección en tiempo real
 ```
 
 Los modelos se cachean por defecto en:
