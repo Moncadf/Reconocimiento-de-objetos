@@ -1,4 +1,4 @@
-````markdown
+
 # Detección de Objetos en Tiempo Real (Windows)
 
 Aplicación sencilla y eficiente para **Windows** que usa la **cámara del PC** y reconoce objetos **en tiempo real** con **YOLOv8**.  
@@ -37,7 +37,7 @@ Cada objeto detectado se marca con un **cuadro**, **nombre** y un **color distin
   ```bash
   git clone https://github.com/tu-usuario/tu-repo.git
   cd tu-repo
-````
+
 
 ### 3) Crear entorno virtual (recomendado)
 
