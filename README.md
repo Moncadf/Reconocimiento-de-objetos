@@ -219,5 +219,3 @@ Consulta el archivo [LICENSE](./LICENSE) para el texto completo.
 * Versión de Windows.
 * Si usaste **.exe** o **código**.
 * Mensaje de error y, si es posible, captura de pantalla.
-
-```
