@@ -1,5 +1,5 @@
 
-# Detección de Objetos en Tiempo Real (Windows)
+# Detección de Objetos en Tiempo Real 
 
 Aplicación sencilla y eficiente para **Windows** que usa la **cámara del PC** y reconoce objetos **en tiempo real** con **YOLOv8**.  
 Cada objeto detectado se marca con un **cuadro**, **nombre** y un **color distinto por clase** (mismo color siempre para la misma clase).
