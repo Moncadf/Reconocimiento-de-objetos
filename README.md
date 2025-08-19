@@ -187,7 +187,11 @@ C:\Users\<TU_USUARIO>\.cache\Ultralytics\
 
 ## 📝 Licencia
 
-Indica aquí la licencia que prefieras (por ejemplo, MIT).
+Este proyecto se distribuye bajo la **Licencia MIT**.  
+Puedes usarlo, copiarlo, modificarlo y distribuirlo libremente, siempre que conserves el aviso de copyright
+y la licencia.
+
+Consulta el archivo [LICENSE](./LICENSE) para el texto completo.
 
 ---
 
