@@ -221,4 +221,3 @@ Consulta el archivo [LICENSE](./LICENSE) para el texto completo.
 * Mensaje de error y, si es posible, captura de pantalla.
 
 ```
-```
