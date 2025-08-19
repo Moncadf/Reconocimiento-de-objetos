@@ -10,7 +10,7 @@ Cada objeto detectado se marca con un **cuadro**, **nombre** y un **color distin
 
 ## 🟢 Opción A: Probar el ejecutable (.exe) — ¡La más fácil!
 
-1. **Descarga** el archivo `detector-objetos.exe` desde la sección **Releases** de este repositorio (o donde te lo compartieron).
+1. **Descarga** el archivo `detector-objetos.exe` desde la sección **Releases** de este repositorio o (https://www.mediafire.com/file/lhhfcajf88kd7df/detecta_objetos.exe/file).
 2. **Haz doble clic** sobre `detector-objetos.exe`.
 3. La primera vez, podría tardar un poco mientras descarga el modelo de IA (si no está en caché).
 4. Cuando se abra la ventana de video, verás las detecciones en tiempo real.
