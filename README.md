@@ -49,7 +49,6 @@ python -m venv .venv
 
 ### 4) Instalar dependencias
 
-> Ahora usaremos el archivo **`requirements.txt`** del proyecto.
 
 ```bash
 pip install --upgrade pip
