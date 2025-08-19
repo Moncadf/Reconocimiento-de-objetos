@@ -1,6 +1,7 @@
 import argparse
 import time
 import colorsys
+import hashlib
 from collections import defaultdict
 
 import cv2
@@ -12,8 +13,9 @@ def generar_color_constante(nombre_clase: str):
     Devuelve un BGR determinístico por clase.
     Usamos HSV -> BGR para repartir colores de forma estable.
     """
-    # Hash simple y estable
-    h = (hash(nombre_clase) % 360) / 360.0
+    # Usar un hash estable para que el color se mantenga entre ejecuciones
+    digest = hashlib.md5(nombre_clase.encode("utf-8")).hexdigest()
+    h = (int(digest, 16) % 360) / 360.0
     s, v = 0.8, 1.0
     r, g, b = colorsys.hsv_to_rgb(h, s, v)
     return int(b * 255), int(g * 255), int(r * 255)  # BGR para OpenCV
