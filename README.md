@@ -46,12 +46,21 @@ python -m venv .venv
 .\.venv\Scripts\activate
 ```
 
+
 ### 4) Instalar dependencias
+
+> Ahora usaremos el archivo **`requirements.txt`** del proyecto.
 
 ```bash
 pip install --upgrade pip
-pip install ultralytics opencv-python
+pip install -r requirements.txt
+````
+
+> **Nota (opcional - GPU NVIDIA):** si quieres usar CUDA, instala la variante de PyTorch para tu versión de CUDA siguiendo la guía oficial de PyTorch. De lo contrario, la instalación anterior usa la versión CPU y funciona igual.
+
 ```
+
+
 
 > La primera ejecución descargará automáticamente el modelo `yolov8n.pt` (ligero y rápido).
 
@@ -128,7 +137,7 @@ La primera ejecución en una máquina “limpia” puede tardar mientras se desc
 .
 ├─ detecta_objetos.py      # Código principal
 ├─ README.md               # Este archivo
-└─ requirements.txt        # (opcional) ultralytics, opencv-python
+└─ requirements.txt        # Requisitos para la app de detección en tiempo real
 ```
 
 Los modelos se cachean por defecto en:
