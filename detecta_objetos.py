@@ -1,6 +1,7 @@
 import argparse
 import time
 import colorsys
+import hashlib
 from collections import defaultdict
 
 import cv2
@@ -12,8 +13,9 @@ def generar_color_constante(nombre_clase: str):
     Devuelve un BGR determinístico por clase.
     Usamos HSV -> BGR para repartir colores de forma estable.
     """
-    # Hash simple y estable
-    h = (hash(nombre_clase) % 360) / 360.0
+    # Usar un hash estable para que el color se mantenga entre ejecuciones
+    digest = hashlib.md5(nombre_clase.encode("utf-8")).hexdigest()
+    h = (int(digest, 16) % 360) / 360.0
     s, v = 0.8, 1.0
     r, g, b = colorsys.hsv_to_rgb(h, s, v)
     return int(b * 255), int(g * 255), int(r * 255)  # BGR para OpenCV
@@ -42,6 +44,7 @@ def main():
     parser.add_argument("--conf", type=float, default=0.5, help="Confianza mínima para mostrar detecciones")
     parser.add_argument("--imgsz", type=int, default=640, help="Tamaño de imagen para la inferencia (ej. 640)")
     parser.add_argument("--model", type=str, default="yolov8n.pt", help="Ruta o nombre del modelo YOLOv8")
+    parser.add_argument("--mostrar-conteos", action="store_true", help="Muestra el conteo de objetos detectados por clase")
     args = parser.parse_args()
 
     # Carga del modelo
@@ -64,7 +67,7 @@ def main():
 
     # Colores por clase (cache)
     clase_a_color = {}
-    # Para mostrar conteo por clase si se desea en el futuro
+    # Conteo por clase opcional
     conteo_clases = defaultdict(int)
 
     nombre_ventana = "Detección en tiempo real - YOLOv8 (q para salir)"
@@ -114,6 +117,14 @@ def main():
         tiempo_prev, fps_suav = calcular_fps(tiempo_prev, fps_suavizado=fps_suav)
         cv2.putText(frame, f"FPS: {fps_suav:0.1f}", (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (20, 20, 20), 4, cv2.LINE_AA)
         cv2.putText(frame, f"FPS: {fps_suav:0.1f}", (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (240, 240, 240), 2, cv2.LINE_AA)
+
+        if args.mostrar_conteos and conteo_clases:
+            y_offset = 45
+            for nombre, cantidad in sorted(conteo_clases.items()):
+                texto = f"{nombre}: {cantidad}"
+                cv2.putText(frame, texto, (10, y_offset), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (20, 20, 20), 4, cv2.LINE_AA)
+                cv2.putText(frame, texto, (10, y_offset), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (240, 240, 240), 2, cv2.LINE_AA)
+                y_offset += 20
 
         # Mostrar
         cv2.imshow(nombre_ventana, frame)
