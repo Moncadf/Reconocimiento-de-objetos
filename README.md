@@ -35,8 +35,8 @@ Cada objeto detectado se marca con un **cuadro**, **nombre** y un **color distin
 - Botón **Code → Download ZIP**, descomprime; o  
 - Con Git:
   ```bash
-  git clone https://github.com/tu-usuario/tu-repo.git
-  cd tu-repo
+  git clone https://github.com/Moncadf/Reconocimiento-de-objetos.git
+  cd Reconocimiento-de-objetos
 
 
 ### 3) Crear entorno virtual (recomendado)
